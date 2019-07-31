@@ -5,15 +5,14 @@
 ### Feature
 
  * [x] Calculates compound interest with monthly contributions
+ 
+ 
+### Example
 
-### Maven configuration
+```java
 
-Ta4j is available on [Maven Central](http://search.maven.org/#search). You just have to add the following dependency in your `pom.xml` file.
+CompoundInterestCalculator calculator = new CompoundInterestCalculator(100.00, 0.006, 12, 100.00);
+BigDecimal amount = calculator.calculateWithMonthlyContribution();
 
-```xml
-<dependency>
-  <groupId>br.com.adesoza.accountant</groupId>
-  <artifactId>accountant-java</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-</dependency>
 ```
+
