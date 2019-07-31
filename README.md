@@ -11,8 +11,12 @@
 
 ```java
 
-CompoundInterestCalculator calculator = new CompoundInterestCalculator(100.00, 0.006, 12, 100.00);
-BigDecimal amount = calculator.calculateWithMonthlyContribution();
+ BigDecimal amount = CompoundInterestCalculator.build()
+				.setCurrentPrincipal(80000.00)
+				.setInterestRate(0.01)
+				.setMonthsQuantities(12)
+				.setMonthlyContribution(0.0).
+				calculate();
 
 ```
 
