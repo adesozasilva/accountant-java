@@ -8,17 +8,12 @@ public class CompoundInterestCalculator {
 	private Double interestRate;
 	private int monthsQuantities;
 	private BigDecimal monthlyContribution;
-
-	public CompoundInterestCalculator(Double currentPrincipal, Double interestRate, int monthsQuantities, Double monthlyContribution) {
-		if(currentPrincipal == null || interestRate == null || monthsQuantities < 1 || monthlyContribution == null) {
-			throw new IllegalArgumentException("Invalid values");
-		}
-		this.currentPrincipal = BigDecimal.valueOf(currentPrincipal);
-		this.interestRate = interestRate;
-		this.monthsQuantities = monthsQuantities;
-		this.monthlyContribution = BigDecimal.valueOf(monthlyContribution);
+	
+	private CompoundInterestCalculator() {}
+	
+	public static CompoundInterestCalculator build() {
+		return new CompoundInterestCalculator();
 	}
-
 
 	@Deprecated
 	public BigDecimal calculateWithoutMonthlyContribution()  { 
@@ -33,7 +28,7 @@ public class CompoundInterestCalculator {
 	}
 	
 
-	public BigDecimal calculateWithMonthlyContribution()  { 
+	private  BigDecimal calculateWithMonthlyContribution()  { 
 		BigDecimal rendimento = currentPrincipal.multiply(BigDecimal.valueOf(this.interestRate));
 		currentPrincipal = currentPrincipal.add(rendimento);
 		
@@ -44,6 +39,37 @@ public class CompoundInterestCalculator {
 			
 		}
 		return currentPrincipal.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+	}
+
+
+	public CompoundInterestCalculator setCurrentPrincipal(Double currentPrincipal) {
+		this.currentPrincipal =  BigDecimal.valueOf(currentPrincipal);
+		return this;
+		
+	}
+
+	public CompoundInterestCalculator setInterestRate(Double interestRate) {
+		this.interestRate = interestRate;
+		return this;
+	}
+
+	public CompoundInterestCalculator setMonthsQuantities(int monthsQuantities) {
+		this.monthsQuantities = monthsQuantities;
+		return this;
+	}
+
+
+	public CompoundInterestCalculator setMonthlyContribution(Double monthlyContribution) {
+		this.monthlyContribution = BigDecimal.valueOf(monthlyContribution);
+		return this;
+	}
+
+
+	public BigDecimal calculate() {
+		if(currentPrincipal == null || interestRate == null || monthsQuantities < 1 || monthlyContribution == null) {
+			throw new IllegalArgumentException("Invalid values");
+		}
+		return calculateWithMonthlyContribution();
 	}
 
 
