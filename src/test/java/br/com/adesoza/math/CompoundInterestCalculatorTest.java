@@ -15,7 +15,7 @@ import org.junit.Test;
 public class CompoundInterestCalculatorTest {
 
 	@Test
-	public void deveCalcularJurosCompostos() {
+	public void shouldCalculateCompoundInterest() {
 		CompoundInterestCalculator calc1 = new CompoundInterestCalculator(80000.00, 0.01, 12, 0.0);
 		CompoundInterestCalculator calc2 = new CompoundInterestCalculator(13000.00, 0.01, 12, 0.0);
 		CompoundInterestCalculator calc3 = new CompoundInterestCalculator(100.00, 0.006, 12, 100.00);
@@ -36,9 +36,10 @@ public class CompoundInterestCalculatorTest {
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void deveLancarExcpetionComValoresInvalidos() {
+	public void shouldThrowExcpetionToInvalidValues() {
 		CompoundInterestCalculator calc = new CompoundInterestCalculator(null, 0.01, 0, 0.0);
 		calc.calculateWithMonthlyContribution();
+		
 		
 	}
 	
