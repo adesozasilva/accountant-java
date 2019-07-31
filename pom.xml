@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>br.com.adesoza.math</groupId>
-  <artifactId>java-math</artifactId>
+  <artifactId>accountant-java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>java-math</name>
+  <name>accountant-java</name>
   <url>http://maven.apache.org</url>
 
   <properties>
