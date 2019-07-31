@@ -9,14 +9,14 @@ public class CompoundInterestCalculator {
 	private int monthsQuantities;
 	private BigDecimal monthlyContribution;
 
-	public CompoundInterestCalculator(Double capitalInicial, Double taxaDeJuros, int quantidadeDeMeses, Double aporteMensal) {
-		if(capitalInicial == null || taxaDeJuros == null || quantidadeDeMeses < 1 || aporteMensal == null) {
+	public CompoundInterestCalculator(Double currentPrincipal, Double interestRate, int monthsQuantities, Double monthlyContribution) {
+		if(currentPrincipal == null || interestRate == null || monthsQuantities < 1 || monthlyContribution == null) {
 			throw new IllegalArgumentException("Invalid values");
 		}
-		this.currentPrincipal = BigDecimal.valueOf(capitalInicial);
-		this.interestRate = taxaDeJuros;
-		this.monthsQuantities = quantidadeDeMeses;
-		this.monthlyContribution = BigDecimal.valueOf(aporteMensal);
+		this.currentPrincipal = BigDecimal.valueOf(currentPrincipal);
+		this.interestRate = interestRate;
+		this.monthsQuantities = monthsQuantities;
+		this.monthlyContribution = BigDecimal.valueOf(monthlyContribution);
 	}
 
 
