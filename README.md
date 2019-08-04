@@ -15,7 +15,7 @@
 				.setCurrentPrincipal(80000.00)
 				.setInterestRate(0.01)
 				.setMonthsQuantities(12)
-				.setMonthlyContribution(0.0)
+				.setMonthlyContribution(100.0)
 				.calculate();
 
 ```
